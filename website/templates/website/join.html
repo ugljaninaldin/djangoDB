@@ -1,0 +1,30 @@
+{% extends 'website/base.html' %}
+
+{% block title %}
+    <title>Join</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Join Today!</h1>
+    <button><a href="{% url 'website:home' %}">Join members</a></button><br><br>
+    <form method="post" action="{% url 'website:join' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="text" placeholder="First Name" class="form-control" name="fname">
+        </div>
+        <div class="mb-3">
+        <input type="text" placeholder="Last Mame" class="form-control" name="lname">
+        </div>
+        <div class="mb-3">
+            <input type="text" placeholder="Age" class="form-control" name="age">
+            </div>
+        <div class="mb-3">
+          <input type="email" placeholder="email@email.com" class="form-control" aria-describedby="emailHelp" name="email">
+        </div>
+        <div class="mb-3">
+          <input type="password" placeholder="password" class="form-control" name="passwd">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-secondary">Sing Up</button>
+    </form>
+{% endblock %}

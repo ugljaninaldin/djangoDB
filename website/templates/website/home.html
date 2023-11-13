@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Members Database</title>
-</head>
-<body>
-    <h1>Members Database</h1>
+{% extends "website/base.html" %}
+
+{% block title %}
+<title>All members</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Members Database!</h1>
+    <button><a href="{% url 'website:join' %}">Join members</a></button><br><br>
     {% for member in members %}
         <p>Email: {{ member.email }}</p>
         <p> {{ member.lname }} {{ member.fname }} </p>
         <p>{{ member.age }} years old </p>
         <hr>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
